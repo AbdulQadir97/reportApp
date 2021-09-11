@@ -96,6 +96,8 @@ const memberLogin = () => {
       displayContent.appendChild(mainContent)
       }
     }
+
+    window.location = "./profile.html"
   }
  
   
