@@ -42,7 +42,17 @@ const memberLogin = () => {
       }
     
     });
-   
+    // let teamRetrieveData = JSON.parse(localStorage.getItem('Teams'))
+    // let teamLoggedUser = teamRetrieveData.filter((obj) => {
+     
+    //      return obj;
+    // }
+    // )
+    // for(let j=0; j > teamLoggedUser.length; j++)
+    // {
+    //   let emails = teamLoggedUser[j].memberEmails;
+    //   console.log(emails)
+    // } 
     console.log(LoggedUser)
     sessionStorage.setItem('LoggedUser', JSON.stringify(LoggedUser))
   
@@ -53,10 +63,12 @@ const memberLogin = () => {
 
     let teamName = document.getElementById('teamName').value
     let teamCategory = document.getElementById('teamCategory').value
-    let memberNames = [document.getElementById('memberName').value]
-    let memberEmails = [document.getElementById('memberEmails').value]
-    memberNames.toString().split(',');
-    memberEmails.toString().split(',')
+    let memberNames = document.getElementById('memberName').value
+    let memberEmails = document.getElementById('memberEmails').value
+    memberNames.toString();
+    memberNames = memberNames.split(",");
+    memberEmails.toString();
+    memberEmails =  memberEmails.split(",")
   
     let teamLeaderEmail = JSON.parse(sessionStorage.getItem('LoggedUser'))
     if(teamName === "" || teamCategory === "" || memberEmails === "")
@@ -96,11 +108,23 @@ const memberLogin = () => {
       displayContent.appendChild(mainContent)
       }
     }
-
+    for(let k = 0; i<=teamDataReceived.memberemail.length; k++)
+    {
+      if(dataReceived[0].useremail === teamDataReceived[k].memberemail)
+      {
+        for(let l = 0; l <= teamDataReceived.length; l++){
+        let displayContent = document.getElementById('Partcontent');
+        let mainContent = document.createElement('div')
+        mainContent.classList.add('col-md-12', 'mt-2', 'profileRow')
+        mainContent.innerHTML = `<h4> ${teamDataReceived[l].category} </h4> <b>members:</b> ${teamDataReceived[l].membername}`;
+        displayContent.appendChild(mainContent)
+  
+      }
+    }
     window.location = "./profile.html"
   }
  
-  
+}
   const logout = ()=> {
     sessionStorage.clear('LoggedUser')
     window.location = "./login.html"
