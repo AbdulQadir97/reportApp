@@ -25,7 +25,11 @@ h3
     color: white;
 }
 
-#profileRow
+.profileRow
 {
     background-color: rgb(252, 251, 241);
+    box-shadow: none;
+    border: 1px #121212 solid;
+    border-radius: 0;
+    padding: 50px;
 }

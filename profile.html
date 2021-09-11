@@ -14,16 +14,62 @@
 
 <body onload="showProfile()">
     <div class="container my-5 mt-5">
-        <div class="row d-flex justify-content-center" id="profileRow">
+        <div class="row d-flex justify-content-center profileRow">
             <div class="col-md-12">
-                <h1>Teams</h1>
-                <div class="col-md-12" id="content">
+                <h1>Teams Own</h1>
+                <div class="col-md-12 profileRow" id="Owncontent">
 
                 </div>
+                <br>
+            <div class="col-md-12">
+                <h1>Teams You Are Member of</h1>
+                <div class="col-md-12 profileRow" id="Partcontent">
+
+                </div>
+            </div>
                 <div class="col-md-12">
-                   
-                    <button type="button" class="btn btn-success" onclick="createTeam()">Create Team</button>
-                    <button type="button" class="btn btn-primary" onclick="logout()">Logout</button>
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Create Your Team</h5>
+                                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="form-row mt-4">
+                                        <input type="text" class="col-12 form-control" placeholder="Team Name" id="teamName">
+                                    </div>
+
+                                    <div class="form-row mt-4">
+                                        <select name="teamCategory" class="col-12 form-control" id="teamCategory">
+                                            <option disabled selected>Team Cateogry</option>
+                                            <option value="Developer">Developer</option>
+                                            <option value="Lead">Lead</option>
+                                            <option value="Maintainence">Maintainence</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-row mt-4">
+                                        <input type="text" class="col-12 form-control" placeholder="Member Name"
+                                            id="memberName">
+                                    </div>
+                                    <div class="form-row mt-4">
+                                        <input type="email" class="col-12 form-control" placeholder="Member Email"
+                                            id="memberEmails">
+                                    </div>
+                                    <div class="form-row mt-4">
+                                     <button type="button" class="btn btn-success mr-4" data-toggle="modal" data-target="#myModal" onclick="createTeam()">Create Team</button>
+                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss ="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success mt-3" data-toggle="modal" data-target="#myModal">Create
+                        Team</button>
+                    <button type="button" class="btn btn-primary mt-3" onclick="logout()">Logout</button>
                 </div>
             </div>
 
